@@ -1,0 +1,26 @@
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: linear-gradient(to left bottom, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+    height: 100vh;
+    
+    .header{
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        height: 2rem;
+        
+        & li{
+            list-style: none;
+
+            & a{
+                color: #fff;
+                text-decoration: none;
+            }
+        }
+    }
+    
+}
