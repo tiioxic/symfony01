@@ -1,9 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Personne index{% endblock %}
-
+        {% block stylesheets %}
+        <link rel="stylesheet" href="{{asset('css/style.css')}}">
+        <link rel="stylesheet" href="{{asset('css/personne.css')}}">
+        {% endblock %}
 {% block body %}
-    <img src="{{ asset('img/image.gif')}}" alt="">
+<section>
 
     <h1>Personne index</h1>
 
@@ -42,4 +45,5 @@
     </table>
 
     <a href="{{ path('app_personne_new') }}">Create new</a>
+</section>
 {% endblock %}

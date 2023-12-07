@@ -1,44 +1,56 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <html lang="fr">
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {% block stylesheets %}
-        <link rel="stylesheet" href="{{asset('css/style.css')}}">
-        {% endblock %}
 
-        {% block javascripts %}
-        {% endblock %}
-    </head>
-    <body>
-        {% block header %}
-        <header>
-            <nav>
-                <ul class="header">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Service</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Connect</a></li>
-                </ul>
-            </nav>
-        </header>
-        {% endblock %}
-        {% block body %}
-        je suis le body
-        {% endblock %}
-        {% block footer %}
-                <footer>
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Service</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Connect</a></li>
-                </ul>
-            </nav>
-        </footer>
-        {% endblock %}
-    </body>
+<head>
+    <html lang="fr">
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+    {% block stylesheets %}
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    {% endblock %}
+
+    {% block javascripts %}
+    {% endblock %}
+</head>
+
+<body>
+    {% block header %}
+    <header>
+        <nav>
+            <ul class="header">
+                <li><img src="{{ asset('img/symfony.svg')}}" alt="" width="20rem"></li>
+                <li><a href="{{ path('app_home') }}">Home</a></li>
+                <li><a href="{{ path('app_personne_index') }}">Personne</a></li>
+                
+                {% if app.user %}
+                <li><p>Bonjour {{ app.user.userIdentifier }}</p></li>
+                <li><a href="{{ path('app_logout') }}">Logout</a></li>
+                {% else %}
+                <li><a href="{{ path('app_register') }}">S'inscrire</a></li>
+                <li><a href="{{ path('app_login') }}">Connexion</a></li>
+
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    {% endblock %}
+    {% block body %}
+
+    {% endblock %}
+    {% block footer %}
+    {# <footer>
+        <nav>
+            <ul class="footer">
+                <li><a href="#">Footer</a></li>
+                <li><a href="#">Footer</a></li>
+                <li><a href="#">Footer</a></li>
+                <li><a href="#">Footer</a></li>
+            </ul>
+        </nav>
+    </footer> #}
+    {% endblock %}
+</body>
+
 </html>

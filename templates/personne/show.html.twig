@@ -1,6 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Personne{% endblock %}
+        {% block stylesheets %}
+        <link rel="stylesheet" href="{{asset('css/style.css')}}">
+        <link rel="stylesheet" href="{{asset('css/personne.css')}}">
+        {% endblock %}
 
 {% block body %}
     <h1>Personne</h1>

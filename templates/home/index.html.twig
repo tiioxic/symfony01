@@ -1,5 +1,18 @@
 {% extends 'base.html.twig' %}
-
+{% block stylesheets %}
+<link rel="stylesheet" href="{{asset('css/style.css')}}">
+{% endblock %}
 {% block body %}
-    <img src="{{ asset('image.gif')}}" alt="">
+<section class="container">
+    <h1>Home</h1>
+    <div id="img-home">
+        <img src="{{ asset('img/sonic.webp')}}" alt="" width="200px">
+        <img src="{{ asset('img/symfony.svg')}}" alt="" width="200px">
+    </div>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia deleniti quam iure quidem commodi veniam modi
+        vitae distinctio dolorem porro cum non suscipit veritatis quo placeat amet unde eius quisquam, enim fuga ipsa
+        recusandae praesentium? Expedita molestiae quo, voluptas nam in fugiat ducimus dignissimos hic provident quis
+        velit molestias sed commodi natus amet itaque saepe ex deleniti placeat ea quaerat consequatur vitae sint.
+        Numquam odio asperiores debitis, iste neque et autem rem labore eligendi reprehenderit?</p>
+</section>
 {% endblock %}
