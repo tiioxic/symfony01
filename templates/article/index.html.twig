@@ -6,7 +6,8 @@
 {% block title %}Article index{% endblock %}
 
 {% block body %}
-    <h1>Article index</h1>
+<div- class="container">
+        <h1>Article index</h1>
 
     <table class="table">
         <thead>
@@ -29,7 +30,7 @@
                 <td>{{ article.resumeContenu }}</td>
                 {# <td>{{ article.contenu }}</td> #}
                 <td>{{ article.date ? article.date|date('d-m-Y H:i:s') : '' }}</td>
-                <td>{{ article.auteur }}</td>
+                <td>{{ article.user }}</td>
                 <td>{{ article.image }}</td>
                 <td>
                     <a href="{{ path('app_article_show', {'id': article.id}) }}">voir détails</a>
@@ -45,4 +46,5 @@
     </table>
 
     <a href="{{ path('app_article_new') }}">Create new</a>
+</div>
 {% endblock %}

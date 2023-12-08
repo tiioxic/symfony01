@@ -10,6 +10,7 @@
 {% block title %}New Article{% endblock %}
 
 {% block body %}
+{% if app.user %}
 <div id="form-article">
     <div id="form-title">
         <a href="{{ path('app_article_index') }}"><i class="fa-solid fa-arrow-left"></i></a>
@@ -17,6 +18,10 @@
     </div>
 
     {{ include('article/_form.html.twig') }}
+    {% else %}
+        Oupsssssssss, non connnecter
+        <img src="{{ asset('img/banane.gif')}}" alt="" width="200px">
 
+    {% endif %}
 </div>
 {% endblock %}

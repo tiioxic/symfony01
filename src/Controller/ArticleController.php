@@ -30,8 +30,16 @@ class ArticleController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // ajouter pour lié user a l'article
+            $article->setUser($this->getUser());
+            
+            
             $entityManager->persist($article);
             $entityManager->flush();
+
+            //flash
+                $this->addFlash('success','L\'article à été publié');
+            //flash end
 
             return $this->redirectToRoute('app_article_index', [], Response::HTTP_SEE_OTHER);
         }

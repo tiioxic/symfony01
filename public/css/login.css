@@ -21,28 +21,32 @@
     color: #fff;
     text-transform: uppercase;
 }
-#form-title{
+
+#form-title {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.input-login{
+
+.input-login {
     width: 100%;
     border-radius: 2px;
     border: none;
     height: 1.5rem;
 }
-#btn-login:hover{
-background-color: #fff;
-transition: 800ms;
-cursor: pointer;
-color: #000;
+
+#btn-login:hover {
+    background-color: #fff;
+    transition: 800ms;
+    cursor: pointer;
+    color: #000;
 }
 
-.input-login:focus{
+.input-login:focus {
     border: 1px solid #0ff;
 }
-.input-login:active{
+
+.input-login:active {
     border: 1px solid #0ff;
     background-color: #0ff;
 }
