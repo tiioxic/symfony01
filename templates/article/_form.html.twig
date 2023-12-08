@@ -1,0 +1,19 @@
+
+
+
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+    <div>
+        {{form_errors(form.titre)}}
+    </div>
+    {# {{ form_widget(form) }} #}
+{{ form_row(form.titre, {'attr':{'class':'input-article','pladceholder':"Titre"}}) }}
+{{ form_row(form.resume_contenu, {'attr':{'class':'input-article','pladceholder':"Résumé contenu"}}) }}
+{{ form_row(form.contenu, {'attr':{'class':'input-article','pladceholder':"contenu"}}) }}
+{{ form_row(form.auteur, {'attr':{'class':'input-article','pladceholder':"Titre"}}) }}
+{{ form_row(form.image, {'attr':{'class':'input-article','pladceholder':"Titre"}}) }}
+
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+
+

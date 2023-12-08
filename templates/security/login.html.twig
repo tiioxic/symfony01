@@ -13,13 +13,13 @@
 
     {% if app.user %}
     <div class="mb-3">
-        You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+        Tu es connecter {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Déconnexion</a>
     </div>
     {% endif %}
 
     <div>
         <div id="form-title">
-            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+            <h1 class="h3 mb-3 font-weight-normal">Connexion</h1>
             <img src="{{asset('./img/personne.png')}}" alt="" width="80px">
         </div>
         <div id="form-input-login">
@@ -35,7 +35,7 @@
     <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
     <button class="btn btn-lg btn-primary" type="submit" id="btn-login">
-        Sign in
+        Connexion
     </button>
 </form>
 {% endblock %}
