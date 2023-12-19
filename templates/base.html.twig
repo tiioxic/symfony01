@@ -42,14 +42,14 @@
     </header>
     {% endblock %}
 
-    
-        {% block message %}
-        <div>
+
+    {% block message %}
+    <div>
         {% for alert in app.flashes('success') %}
         {{alert}}
         {% endfor %}
-        </div>
-        {% endblock %}
+    </div>
+    {% endblock %}
 
     {% block body %}
 

@@ -3,7 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Entity\Commentaire;
+use App\Form\CommentaireType;
 use App\Form\ArticleType;
+use App\Repository\CommentaireRepository;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -50,11 +53,32 @@ class ArticleController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_article_show', methods: ['GET'])]
-    public function show(Article $article): Response
+    #[Route('/{id}', name: 'app_article_show', methods: ['GET', 'POST'])]
+    public function show(Article $article,Request $request,EntityManagerInterface $entityManager, CommentaireRepository $commentaireRepository): Response
     {
+
+        // début de commentaire
+         $commentaire = new Commentaire();
+        $form = $this->createForm(CommentaireType::class, $commentaire);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // $this->getUser(): recup le user connecté
+            $commentaire->setUser($this->getUser());
+            // recup de larticle
+            $commentaire->setArticle($article);
+            $entityManager->persist($commentaire);
+            $entityManager->flush();
+            // redirection au même endroit
+            return $this->redirectToRoute('app_article_show',array('id'=>$article->getId()));
+        }
+        
+        // fin de commentaire
         return $this->render('article/show.html.twig', [
             'article' => $article,
+            'form' => $form,
+            'comments'=> $commentaireRepository->findBy(['article'=> $article])
+
         ]);
     }
 
